@@ -8,6 +8,7 @@ import Link from 'next/link'
 import path from 'path'
 import CustomLink from '../../components/CustomLink'
 import Layout from '../../components/Layout'
+import Title from '../../components/Title';
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
 
 // Custom components/renderers to pass to MDX.
@@ -34,7 +35,7 @@ export default function PostPage({ source, frontMatter }) {
         </nav>
       </header>
       <div className="post-header">
-        <h1>{frontMatter.title}</h1>
+        <Title>{frontMatter.title}</Title>
         {frontMatter.description && (
           <p className="description">{frontMatter.description}</p>
         )}
@@ -44,10 +45,6 @@ export default function PostPage({ source, frontMatter }) {
       </main>
 
       <style jsx>{`
-        .post-header h1 {
-          margin-bottom: 0;
-        }
-
         .post-header {
           margin-bottom: 2rem;
         }
