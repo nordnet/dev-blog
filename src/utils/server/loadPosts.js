@@ -28,7 +28,6 @@ export const loadPosts = () => {
       filePath,
     }
   });
-  console.log(posts);
   return posts;
 }
 
