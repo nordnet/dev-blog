@@ -418,10 +418,10 @@
   resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.2.0.tgz#55953b697769c6647f371bc6bcd865a24e1a22e9"
   integrity sha512-3I31K9B4hEQRl7yQ44Umyz+szHtuMJrNdwsgJGhoEnUCXSBRHp5wv5Zv8eDa2NewSbe53b2C0oOpivrzmdBakw==
 
-"@nordnet/ui@6.14.0":
-  version "6.14.0"
-  resolved "https://registry.yarnpkg.com/@nordnet/ui/-/ui-6.14.0.tgz#526b77351edbc477394fb24ecd34259b129a884a"
-  integrity sha512-+avEVvh2wIT64IwL1CIcR68dEAFnBhhvcU83lqrVh4073is5Rt8wJCuS4TcybLWpR4ZTjs4pLD7aVdJNl40aTQ==
+"@nordnet/ui@6.15.0":
+  version "6.15.0"
+  resolved "https://registry.yarnpkg.com/@nordnet/ui/-/ui-6.15.0.tgz#571decaa8485d06f73db04fa608036177cf09cc3"
+  integrity sha512-ouGBwKzEHCs2knMODv3gKu6x+3GKb+6g8hIY7ZLMdsqpeClbvgbdRr2Wq3VL7mi+pLjQYD09evEV5wAy0ErXww==
   dependencies:
     "@popperjs/core" "^2.5.4"
     "@xstate/react" "^0.7.1"
