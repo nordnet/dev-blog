@@ -26,7 +26,7 @@ export const H6 = (props) => {
 }
 
 export const P = (props) => {
-  return <Typography as="p" {...props} />
+  return <Typography as="div" {...props} />
 }
 
 export const Strong = (props) => {

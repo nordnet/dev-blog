@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image';
 // import dynamic from 'next/dynamic'
 
 import {Separator} from '@nordnet/ui';
 
+import {Image} from './Image';
 import {P, H1, H2, H3, H4, H5, H6, Em, BlockQuote, Strong, Striked, Pre, Code, InlineCode} from './Typography';
 
 import Link from './Link'
