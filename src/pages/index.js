@@ -1,43 +1,43 @@
-import fs from 'fs'
-import matter from 'gray-matter'
-import path from 'path'
+
 import Link from '../components/mdx/Link'
-import {OrderedList, Item} from '../components/mdx/List';
+import {H1} from '../components/mdx/Typography'
+import {OrderedList, Item, UnorderedList} from '../components/mdx/List';
 import Layout from '../components/Layout'
-import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils'
+import {loadPosts} from '../utils/server/loadPosts'
+import {getPostPath} from '../utils/postHandling/getPostPath';
+import {sortPostsByDate} from '../utils/postHandling/sortPosts';
+import {filterPostsOnPages} from '../utils/postHandling/filterPosts';
+import {PREFIX} from '../utils/constants';
 import Title from '../components/Title';
 
 export default function Index({ posts }) {
   return (
     <Layout>
-      <Title>Hej och välkommen till Hajk</Title>
+      <Title>Welcome to Nordnet Tech Blog</Title>
+      <H1>Latest Posts</H1>
       <OrderedList>
         {posts.map((post) => (
           <Item key={post.filePath}>
             <Link
-              as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-              href={`/posts/[slug]`}
+              as={getPostPath(post)}
+              href={`/${PREFIX}/[slug]`}
             >
               {post.data.title}
             </Link>
           </Item>
         ))}
       </OrderedList>
+      <H1>Collections</H1>
+      <UnorderedList>
+        <Item><Link href="/authors">Authors</Link></Item>
+        <Item><Link href="/categories">Categories</Link></Item>
+        <Item><Link href="/tags">Tags</Link></Item>
+      </UnorderedList>
     </Layout>
   )
 }
 
 export function getStaticProps() {
-  const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
-    const { content, data } = matter(source)
-
-    return {
-      content,
-      data,
-      filePath,
-    }
-  })
-
+  const posts = sortPostsByDate(filterPostsOnPages(loadPosts(), 5, 0));
   return { props: { posts } }
 }
