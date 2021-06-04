@@ -418,10 +418,10 @@
   resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.2.3.tgz#2f3e42fe6680798f276e3621345c2886b231348b"
   integrity sha512-qtBF56vPC6d6a8p7LYd0iRjW89fhY80kAIzmj+VonvIGjK/nymBjcFUhbKiMFqlhsarCksnhwX+Zmn95Dw9qvA==
 
-"@nordnet/ui@6.15.0":
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/@nordnet/ui/-/ui-6.15.0.tgz#571decaa8485d06f73db04fa608036177cf09cc3"
-  integrity sha512-ouGBwKzEHCs2knMODv3gKu6x+3GKb+6g8hIY7ZLMdsqpeClbvgbdRr2Wq3VL7mi+pLjQYD09evEV5wAy0ErXww==
+"@nordnet/ui@6.18.0":
+  version "6.18.0"
+  resolved "https://registry.yarnpkg.com/@nordnet/ui/-/ui-6.18.0.tgz#40b6693d86acccc538918a5d687ac8ee8c98b710"
+  integrity sha512-QGGny4zH7IO4ziCYSS9M4bfBjrWVWwAgeLiRRaZZzFEHuEWzlTGu5q8dzdq/xvsx8Kdkfw5QeEN3O0tmxzIyqw==
   dependencies:
     "@popperjs/core" "^2.5.4"
     "@xstate/react" "^0.7.1"
@@ -438,7 +438,7 @@
     scroll-into-view-if-needed "^2.2.20"
     styled-components "^5.1.0"
     use-ssr "^1.0.18"
-    xstate "^4.6.7"
+    xstate "^4.19.1"
 
 "@opentelemetry/api@0.14.0":
   version "0.14.0"
@@ -3561,10 +3561,10 @@ which-typed-array@^1.1.2:
     has-symbols "^1.0.1"
     is-typed-array "^1.1.3"
 
-xstate@^4.6.7:
-  version "4.19.1"
-  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.19.1.tgz#6d6b5388b11a0297894be0caaef2299891c6fb6a"
-  integrity sha512-tnBh6ue9MiyoMkE2+w1IqfvJm4nBe3S4Ky/RLvlo9vka8FdO4WyyT3M7PA0pQoM/FZ9aJVWFOlsNw0Nc7E+4Bw==
+xstate@^4.19.1:
+  version "4.19.2"
+  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.19.2.tgz#58ef6fc71737c76750ec61c5ff8b000101895d8a"
+  integrity sha512-eWI6kOHavcqhu1ACCmRowYGaQnH0KGvBoGg3lqmle9ZYyVWa2ZcVTgZlsK7o419/jw9gWX2LYmYGkm9w/VoXMA==
 
 xtend@^4.0.0, xtend@^4.0.1, xtend@^4.0.2:
   version "4.0.2"
