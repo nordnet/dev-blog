@@ -31,3 +31,10 @@ Option        | Default | Note
 `files`       | `null`  | Multi select (with autocompletion) to choose which files to update.
 `bulk`        | `false` | If `true` the cli will prompt for meta data once per field and write it to all selected files. If `false` the cli will prompt for input for each relevant field for every selected file.
 `forceUpdate` | `false` | If `false` the cli will only prompt/update missing fields. If `true` it will prompt for updates even for fields already set (with current state as default).
+
+
+## Development
+```sh
+yarn install
+yarn dev
+```
