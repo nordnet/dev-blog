@@ -38,3 +38,9 @@ Option        | Default | Note
 yarn install
 yarn dev
 ```
+
+
+## TODOs and Inspiration
+* [https://www.netlify.com/blog/2020/05/08/improve-your-seo-and-social-sharing-cards-with-next.js/](https://www.netlify.com/blog/2020/05/08/improve-your-seo-and-social-sharing-cards-with-next.js/)
+* [https://www.learnwithjason.dev/blog/auto-generate-social-image/](https://www.learnwithjason.dev/blog/auto-generate-social-image/)
+* [https://cloudinary.com/products/programmable_media](https://cloudinary.com/products/programmable_media)

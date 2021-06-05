@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { Box, Flexbox, Typography } from '@nordnet/ui';
 import Link from '../../components/mdx/Link';
 import Layout from '../../components/Layout'
-import {H4} from '../../components/mdx/Typography';
 import Title from '../../components/Title';
 import MDXMapper from '../../components/MDXMapper';
 import {loadPost, getSlugsFromPosts} from '../../utils/server/loadPosts'
@@ -33,7 +32,7 @@ const MetaLink = (props) =>{
 
 export default function PostPage({ source, frontMatter }) {
   return (
-    <Layout>
+    <Layout {...frontMatter} pageType="article" >
       <Box my={4}>
         <MetaRow>
 
