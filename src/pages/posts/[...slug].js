@@ -2,40 +2,19 @@ import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
 import {lightFormat} from 'date-fns';
 import Image from 'next/image';
-import styled from 'styled-components';
-import { Box, Flexbox, Typography } from '@nordnet/ui';
-import Link from '../../components/mdx/Link';
+import { Box } from '@nordnet/ui';
 import Layout from '../../components/Layout'
 import Title from '../../components/Title';
 import MDXMapper from '../../components/MDXMapper';
 import {loadPost, getSlugsFromPosts} from '../../utils/server/loadPosts'
-import { UnorderedList, Item } from '../../components/mdx/List';
+import {MetaItem, MetaRow, MetaLink, Capitalize, UpperCase} from '../../components/Meta';
 
-const UpperCase = styled.span`
-  text-transform: uppercase;
-`
-const Capitalize = styled.span`
-  text-transform: capitalize;
-`
-
-const MetaItem = ({children}) => {
-  return <Flexbox item><Typography color={(t) => t.color.label}>{children}</Typography></Flexbox>
-}
-
-const MetaRow = ({children}) => {
-  return <Flexbox justifyContent="center" container gutter={5} >{children}</Flexbox>
-}
-
-const MetaLink = (props) =>{
-  return <Link color={(t) => t.color.label} hoverColor={t => t.color.cta} {...props} />
-}
 
 export default function PostPage({ source, frontMatter }) {
   return (
     <Layout {...frontMatter} pageType="article" >
       <Box my={4}>
         <MetaRow>
-
           {frontMatter.category ? (
             <MetaItem><MetaLink href="/categories/[category]" as={`/categories/${frontMatter.category}`} ><UpperCase>{frontMatter.category}</UpperCase></MetaLink></MetaItem>
           ) : null}
