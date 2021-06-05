@@ -1,38 +1,18 @@
 
-import Link from '../../components/mdx/Link'
-import {OrderedList, Item} from '../../components/mdx/List';
 import Layout from '../../components/Layout'
 import {loadPosts} from '../../utils/server/loadPosts'
-import {getPostPath} from '../../utils/postHandling/getPostPath';
+import {getAllAuthors} from '../../utils/postHandling/getMeta';
+import Title from '../../components/Title';
 import {sortPostsByDate} from '../../utils/postHandling/sortPosts';
 import {filterPostsOnAuthor} from '../../utils/postHandling/filterPosts';
-import {getAllAuthors} from '../../utils/postHandling/getMeta';
-import {PREFIX} from '../../utils/constants';
-import Title from '../../components/Title';
+import {PostList} from '../../components/PostList';
+import { Capitalize } from '../../components/Meta';
 
-export default function Index({ posts, author }) {
+export default function Author({ posts, author }) {
   return (
     <Layout>
-      <header>
-        <nav>
-          <Link href="/authors">
-            👈 Go back to authors
-          </Link>
-        </nav>
-      </header>
-      <Title>{author}</Title>
-      <OrderedList>
-        {posts.map((post) => (
-          <Item key={post.filePath}>
-            <Link
-              as={getPostPath(post)}
-              href={`/${PREFIX}/[slug]`}
-            >
-              {post.data.title}
-            </Link>
-          </Item>
-        ))}
-      </OrderedList>
+      <Title textAlign="center"><Capitalize>{author}</Capitalize></Title>
+      <PostList posts={posts} />
     </Layout>
   )
 }
