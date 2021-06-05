@@ -1,68 +1,33 @@
-# MDX Remote Example
+# Nordnet Dev Blog
 
-This example shows how a simple blog might be built using the [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) library, which allows mdx content to be loaded via `getStaticProps` or `getServerSideProps`. The mdx content is loaded from a local folder, but it could be loaded from a database or anywhere else.
 
-The example also showcases [next-remote-watch](https://github.com/hashicorp/next-remote-watch), a library that allows next.js to watch files outside the `pages` folder that are not explicitly imported, which enables the mdx content here to trigger a live reload on change.
+## Usage
 
-Since `next-remote-watch` uses undocumented Next.js APIs, it doesn't replace the default `dev` script for this example. To use it, run `npm run dev:watch` or `yarn dev:watch`.
+### Create post
+Run the followin command and fill out the prompted meta data.
+```sh
+yarn post
+```
+#### Meta fields
+Field         | Type                 | Note
+--------------|----------------------|-----------
+`title`       | `string`             | Title of the blogpost (you should not put the title as a header in the blogpost). Maxlength: 60.
+`description` | `string`             | Description of the blogpost, this is used for `og:description` and `meta=description` in `<head>` for SEO. Maxlength: 200.
+`author`      | `string`             | The author of the post, pick from a list of previous found authors, or choose other to manually create a new author. Maxlength: 32.
+`date`        | `"yyyy-MM-dd"`       | The publish date of the post, take note for format. The date will be validated, also remember to put quotes to explicit make it a string for parseability. Defaults to current date.
+`category`    | `string`             | Pick a category that is already available or create a new one. Maxlength: 32.
+`tags`        | `string[]`           | Pick tags that is already available and/or create new ones but typing a comma separated list when prompted. Maxlength: 10 items and 32 chars/item.
+`image`       | `relative file path` | Select an image from `/public/images` (`None`/`null` is allowed in creation but not when validating). This is used by `og:image` and as a thumbnail/hero image. TODO: Recommend/enforce aspect ratio(s).
+`readTime`    | `number`             | Indicator in minutes how long the post takes to read. Calculated by counting words in post and dividing by 265 words/minute. (Only generated when running `yarn update:meta`). Range: 0-60.
+(`slug`)      | `string`             | (Not actually in the metadata) Filename of where to save the file relative to `/posts`. This will also be the url of the post. Must be kebab-case (lower case with dashes) with '/' as directory separator (subdirectories are allowed). Defaults to `kebabCase(title)`. Total maxlength: 64.
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-mdx-remote&project-name=with-mdx-remote&repository-name=with-mdx-remote)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-mdx-remote with-mdx-remote-app
-# or
-yarn create next-app --example with-mdx-remote with-mdx-remote-app
+### Modify meta data
+```
+yarn update:meta
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-### Conditional custom components
-
-When using `next-mdx-remote`, you can pass custom components to the MDX renderer. However, some pages/MDX files might use components that are used infrequently, or only on a single page. To avoid loading those components on every MDX page, you can use `next/dynamic` to conditionally load them.
-
-For example, here's how you can change `getStaticProps` to pass a list of component names, checking the names in the page render function to see which components need to be dynamically loaded.
-
-```js
-import dynamic from 'next/dynamic'
-
-const SomeHeavyComponent = dynamic(() => import('SomeHeavyComponent'))
-
-// ...
-export function SomePage({ mdxSource, componentNames }) {
-  const components = {
-    ...defaultComponents,
-    SomeHeavyComponent: componentNames.includes('SomeHeavyComponent')
-      ? SomeHeavyComponent
-      : null,
-  }
-
-  return <MDXRemote {...mdxSource} />
-}
-
-export async function getStaticProps() {
-  const { content, data } = matter(source)
-
-  const componentNames = [
-    /<SomeHeavyComponent/.test(content) ? 'SomeHeavyComponent' : null,
-  ].filter(Boolean)
-
-  const mdxSource = await serialize(content)
-
-  return {
-    props: {
-      mdxSource,
-      componentNames,
-    },
-  }
-}
-```
+Option        | Default | Note
+--------------|---------|---------
+`files`       | `null`  | Multi select (with autocompletion) to choose which files to update.
+`bulk`        | `false` | If `true` the cli will prompt for meta data once per field and write it to all selected files. If `false` the cli will prompt for input for each relevant field for every selected file.
+`forceUpdate` | `false` | If `false` the cli will only prompt/update missing fields. If `true` it will prompt for updates even for fields already set (with current state as default).
