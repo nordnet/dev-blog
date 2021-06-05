@@ -16,7 +16,7 @@ export const promptImage = async (initial) => {
         value: emptyValue,
         title: 'None',
       }, ...imagesFilePaths.map(image => ({
-        value: image,
+        value: `/${image}`,
         title: image,
       }))]
     }

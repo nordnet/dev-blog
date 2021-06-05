@@ -1,6 +1,9 @@
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
 import {lightFormat} from 'date-fns';
+import Image from 'next/image';
+import styled from 'styled-components';
+import { Box, Flexbox, Typography } from '@nordnet/ui';
 import Link from '../../components/mdx/Link';
 import Layout from '../../components/Layout'
 import {H4} from '../../components/mdx/Typography';
@@ -8,7 +11,25 @@ import Title from '../../components/Title';
 import MDXMapper from '../../components/MDXMapper';
 import {loadPost, getSlugsFromPosts} from '../../utils/server/loadPosts'
 import { UnorderedList, Item } from '../../components/mdx/List';
-import { Box, Separator } from '@nordnet/ui';
+
+const UpperCase = styled.span`
+  text-transform: uppercase;
+`
+const Capitalize = styled.span`
+  text-transform: capitalize;
+`
+
+const MetaItem = ({children}) => {
+  return <Flexbox item><Typography color={(t) => t.color.label}>{children}</Typography></Flexbox>
+}
+
+const MetaRow = ({children}) => {
+  return <Flexbox justifyContent="center" container gutter={5} >{children}</Flexbox>
+}
+
+const MetaLink = (props) =>{
+  return <Link color={(t) => t.color.label} hoverColor={t => t.color.cta} {...props} />
+}
 
 export default function PostPage({ source, frontMatter }) {
   return (
@@ -21,36 +42,33 @@ export default function PostPage({ source, frontMatter }) {
         </nav>
       </header>
       <Box my={4}>
-        <Title>{frontMatter.title}</Title>
-        {frontMatter.description && (
-          <H4>Description: {frontMatter.description}</H4>
-        )}
-        {frontMatter.author && (
-          <H4>Author: <Link href="/authors/[author]" as={`/authors/${frontMatter.author}`} >{frontMatter.author}</Link></H4>
-        )}
-        {frontMatter.category && (
-          <H4>Category: <Link href="/categories/[category]" as={`/categories/${frontMatter.category}`} >{frontMatter.category}</Link></H4>
-        )}
-        {frontMatter.date && (
-          <H4>Date: {lightFormat(new Date(frontMatter.date), 'yyyy-MM-dd')}</H4>
-        )}
-        {frontMatter.tags && (
-          <>
-            <H4>Tags:</H4>
-            <Box mx={4}>
-            <UnorderedList>
-              {frontMatter.tags.map((tag) => 
-                <Item key={tag}><Link href="/tags/[tag]" as={`/tags/${tag}`} >{tag}</Link></Item>)
-              }
-            </UnorderedList>
-            </Box>
-          </>
-        )}
-        <Separator />
+        <MetaRow>
+
+          {frontMatter.category ? (
+            <MetaItem><MetaLink href="/categories/[category]" as={`/categories/${frontMatter.category}`} ><UpperCase>{frontMatter.category}</UpperCase></MetaLink></MetaItem>
+          ) : null}
+          {frontMatter.author ? (
+            <MetaItem><MetaLink href="/authors/[author]" as={`/authors/${frontMatter.author}`} ><Capitalize>{frontMatter.author}</Capitalize></MetaLink></MetaItem>
+          ) : null}
+          {frontMatter.date ? (
+            <MetaItem>{lightFormat(new Date(frontMatter.date), 'yyyy-MM-dd')}</MetaItem>
+          ) : null}
+        </MetaRow>
+        <Title textAlign="center">{frontMatter.title}</Title>
+        
+        <MetaRow><Box p={5}>{frontMatter.image ? <Image src={frontMatter.image} width={500} height={500} />  : null}</Box></MetaRow>
       </Box>
       <main>
         <MDXMapper {...source} />
       </main>
+      {frontMatter.tags ? (
+        <MetaRow>
+          <MetaItem>Tags:</MetaItem>
+            {frontMatter.tags.map((tag) => 
+              <MetaItem key={tag}><MetaLink href="/tags/[tag]" as={`/tags/${tag}`} >{tag}</MetaLink></MetaItem>)
+            }
+        </MetaRow>
+      ) : null}
     </Layout>
   )
 }
