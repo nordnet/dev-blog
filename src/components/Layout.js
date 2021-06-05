@@ -31,8 +31,6 @@ const MenuLink = (props) => {
 }
 
 
-
-
 export default function Layout({ children, title, description, tags, pageType, image, readTime, author, date, category}) {
   return (
     <>
@@ -41,7 +39,6 @@ export default function Layout({ children, title, description, tags, pageType, i
         <MenuBar>
           <MenuItem><MenuLink href="/authors">Authors</MenuLink></MenuItem>
           <MenuItem><MenuLink href="/categories">Categories</MenuLink></MenuItem>
-          <MenuItem><MenuLink href="/tags">Tags</MenuLink></MenuItem>
         </MenuBar>
       </Menu>
       <Box mt={8}>

@@ -14,7 +14,7 @@ export default function Index({ posts }) {
   return (
     <Layout>
       <Title textAlign="center">Blog</Title>
-      <H1>Latest Posts</H1>
+      <H1>Latest Articles</H1>
       <PostList posts={posts} />
       <Flexbox container justifyContent="flex-end"><Flexbox item><Link href="/articles">See all articles</Link></Flexbox></Flexbox>
     </Layout>

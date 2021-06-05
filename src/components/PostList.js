@@ -35,7 +35,14 @@ ${Container}:hover & {
 }
 `
 
-export const PostList = ({posts}) => {
+const defaultLinkGenerator = (post) => {
+  return {
+    as: getPostPath(post),
+    href: `/${PREFIX}/[...slug]`
+  }
+}
+
+export const PostList = ({posts, linkGenerator = defaultLinkGenerator}) => {
   return (
     <Flexbox container
       wrap="wrap"
@@ -44,10 +51,7 @@ export const PostList = ({posts}) => {
     {posts.map((post) => (
       <Flexbox item key={post.filePath} gutter={5} sm={{flex: "0 0 100%"}} md={{flex: "0 0 50%"}} lg={{flex: "0 0 33.333%"}}>
         <Container p={4}>
-          <Link
-            as={getPostPath(post)}
-            href={`/${PREFIX}/[...slug]`}
-          >
+          <Link {...linkGenerator(post)}>
             <Flexbox container justifyContent="center">
                 <FadedImage src={post.data.image} width={300} height={300}/>
             </Flexbox>

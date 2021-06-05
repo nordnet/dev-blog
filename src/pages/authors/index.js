@@ -1,39 +1,22 @@
 
-import Link from '../../components/mdx/Link'
-import {OrderedList, Item} from '../../components/mdx/List';
 import Layout from '../../components/Layout'
 import {loadPosts} from '../../utils/server/loadPosts'
 import Title from '../../components/Title';
-import { getAllAuthors } from '../../utils/postHandling/getMeta';
+import { getAllAuthors, getFirstPostForEachAuthor } from '../../utils/postHandling/getMeta';
+import { sortPostsByDate } from '../../utils/postHandling/sortPosts';
+import {PostList} from '../../components/PostList';
 
-export default function Index({ authors }) {
+export default function Index({ posts}) {
   return (
     <Layout>
-      <header>
-        <nav>
-          <Link href="/">
-            👈 Go back Home
-          </Link>
-        </nav>
-      </header>
       <Title>Authors</Title>
-      <OrderedList>
-        {authors.map((author) => (
-          <Item key={author}>
-            <Link
-              as={`/authors/${author}`}
-              href={`/authors/[author]`}
-            >
-              {author}
-            </Link>
-          </Item>
-        ))}
-      </OrderedList>
+      <PostList posts={posts} linkGenerator={(post) => ({ href: `/authors/${post.data.author}`})} />
     </Layout>
   )
 }
 
 export function getStaticProps() {
   const authors = getAllAuthors(loadPosts());
-  return { props: { authors } }
+  const posts = getFirstPostForEachAuthor(sortPostsByDate(loadPosts())) 
+  return { props: { authors, posts } }
 }
