@@ -1,7 +1,7 @@
 
 import Link from '../components/mdx/Link'
 import {H1} from '../components/mdx/Typography'
-import {OrderedList, Item, UnorderedList} from '../components/mdx/List';
+import {OrderedList, Item} from '../components/mdx/List';
 import Layout from '../components/Layout'
 import {loadPosts} from '../utils/server/loadPosts'
 import {getPostPath} from '../utils/postHandling/getPostPath';
@@ -27,12 +27,6 @@ export default function Index({ posts }) {
           </Item>
         ))}
       </OrderedList>
-      <H1>Collections</H1>
-      <UnorderedList>
-        <Item><Link href="/authors">Authors</Link></Item>
-        <Item><Link href="/categories">Categories</Link></Item>
-        <Item><Link href="/tags">Tags</Link></Item>
-      </UnorderedList>
     </Layout>
   )
 }

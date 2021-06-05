@@ -34,13 +34,6 @@ const MetaLink = (props) =>{
 export default function PostPage({ source, frontMatter }) {
   return (
     <Layout>
-      <header>
-        <nav>
-          <Link href="/">
-            👈 Go back home
-          </Link>
-        </nav>
-      </header>
       <Box my={4}>
         <MetaRow>
 
