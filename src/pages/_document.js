@@ -1,6 +1,23 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components';
 
+import Prism from "prism-react-renderer/prism";
+
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+
+require("prismjs/components/prism-java");
+require("prismjs/components/prism-kotlin");
+require("prismjs/components/prism-bash");
+require("prismjs/components/prism-css");
+require("prismjs/components/prism-docker");
+require("prismjs/components/prism-erlang");
+require("prismjs/components/prism-git");
+require("prismjs/components/prism-groovy");
+require("prismjs/components/prism-groovy");
+require("prismjs/components/prism-nginx");
+require("prismjs/components/prism-toml");
+require("prismjs/components/prism-yaml");
+
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
 const sheet = new ServerStyleSheet();
