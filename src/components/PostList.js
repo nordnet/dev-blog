@@ -53,14 +53,14 @@ export const PostList = ({posts, linkGenerator = defaultLinkGenerator}) => {
         <Container p={4}>
           <Link {...linkGenerator(post)}>
             <Flexbox container justifyContent="center">
-                <FadedImage src={post.data.image} width={300} height={300}/>
+                <FadedImage alt={post.data.title} src={post.data.image} width={300} height={300}/>
             </Flexbox>
             <MetaRow justifyContent="left">
               <MetaItem><UpperCase>{post.data.category}</UpperCase></MetaItem>
               <MetaItem>{post.data.date}</MetaItem>
             </MetaRow>
             <Box>
-              <Typography type="title2" as="h3">
+              <Typography type="title2" as="p">
                 <TitleLink>
                     {post.data.title}
                 </TitleLink>

@@ -27,7 +27,7 @@ export default function PostPage({ source, frontMatter }) {
         </MetaRow>
         <Title textAlign="center">{frontMatter.title}</Title>
         
-        <MetaRow><Box p={5}>{frontMatter.image ? <Image src={frontMatter.image} width={500} height={500} />  : null}</Box></MetaRow>
+        <MetaRow><Box p={5}>{frontMatter.image ? <Image src={frontMatter.image} alt={frontMatter.title} width={500} height={500} />  : null}</Box></MetaRow>
       </Box>
       <main>
         <MDXMapper {...source} />
