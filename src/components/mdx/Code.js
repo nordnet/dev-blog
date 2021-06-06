@@ -59,7 +59,7 @@ const calculateLinesToHighlight = meta => {
 export const Code = (props) => {
   const {metastring, children, className } = props;
   const shouldHighlightLine = calculateLinesToHighlight(metastring)
-  const language = className.replace('language-', '')
+  const language = (className ?? '').replace('language-', '')
   return (
     <Highlight {...defaultProps} theme={theme} code={children} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
