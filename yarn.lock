@@ -678,10 +678,10 @@
     readdirp "^2.2.1"
     upath "^1.1.1"
 
-"@nordnet/ui@6.18.1":
-  version "6.18.1"
-  resolved "https://registry.yarnpkg.com/@nordnet/ui/-/ui-6.18.1.tgz#3aeca99a02a7ab8420221da6fa3877b9bf2b4850"
-  integrity sha512-rN8FO1RfA3kgcijf/PsQtnW5/DZM6BRyEB78K5yJ9GBsujlWPz/ISLDdXY5Pa3Pgciuz/GQ7QgxIamQS4+7YnA==
+"@nordnet/ui@6.19.7":
+  version "6.19.7"
+  resolved "https://registry.yarnpkg.com/@nordnet/ui/-/ui-6.19.7.tgz#e84cc3b2c3df65ff685bb6768f489dae11d5d7cd"
+  integrity sha512-rUBk+qke/L1s2M9ZMCaE5Jq5eTZB02xVNI/mmDugIbyT0B/xVYRNESnztGeiudznnBLSZQxHD07lsfYmNX+HSA==
   dependencies:
     "@popperjs/core" "^2.5.4"
     "@xstate/react" "^0.7.1"
