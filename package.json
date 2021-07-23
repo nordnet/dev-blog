@@ -12,7 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@nordnet/ui": "6.20.1",
+    "@nordnet/ui": "6.20.3",
     "babel-plugin-styled-components": "1.13.2",
     "date-fns": "2.22.1",
     "gray-matter": "4.0.3",
