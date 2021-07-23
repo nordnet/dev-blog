@@ -14,7 +14,7 @@
   "dependencies": {
     "@nordnet/ui": "6.20.1",
     "babel-plugin-styled-components": "1.13.2",
-    "date-fns": "2.22.1",
+    "date-fns": "2.23.0",
     "gray-matter": "4.0.3",
     "lodash": "4.17.21",
     "next": "11.0.1",
