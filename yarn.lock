@@ -715,10 +715,10 @@
     readdirp "^2.2.1"
     upath "^1.1.1"
 
-"@nordnet/ui@6.20.3":
-  version "6.20.3"
-  resolved "https://registry.yarnpkg.com/@nordnet/ui/-/ui-6.20.3.tgz#6ecd7ba84b7afb71bc06ad6f9ba739ca8a869eb8"
-  integrity sha512-FiXkLGvDMncL/dORKhAvGGqxubgLBH4M3nOp6d6M5Vu1VFK7IemnkTGcLtz3WlJ2JrXPdpJ5E2vw0/S7T/V2qA==
+"@nordnet/ui@6.22.4":
+  version "6.22.4"
+  resolved "https://registry.yarnpkg.com/@nordnet/ui/-/ui-6.22.4.tgz#38a463261abe64afbf1cc02e352c5daa4cc81519"
+  integrity sha512-h+btqT9u1kMn1s746FJFVzyCIIxB+NEpMSe6ikAMHgv1R9b2gdoHt5ln8Zz3dYGuKLicv94z9Uw+cgb59+bvdg==
   dependencies:
     "@popperjs/core" "^2.5.4"
     "@xstate/react" "^0.7.1"
