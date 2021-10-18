@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@nordnet/ui": "6.20.3",
-    "babel-plugin-styled-components": "1.13.2",
+    "babel-plugin-styled-components": "1.13.3",
     "date-fns": "2.23.0",
     "gray-matter": "4.0.3",
     "lodash": "4.17.21",
